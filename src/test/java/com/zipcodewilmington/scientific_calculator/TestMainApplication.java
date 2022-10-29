@@ -1,57 +1,88 @@
 package com.zipcodewilmington.scientific_calculator;
 
 import com.zipcodewilmington.scientificcalculator.MainApplication;
+import org.junit.jupiter.api.Test;
+
+import java.text.DecimalFormat;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Created by leon on 2/9/18.
  */
 public class TestMainApplication {
-    public void MainApplicationTest() {
-        MainApplication sureTotal = new MainApplication();
-        Double newTotal = sureTotal.inverse(3);
-        System.out.printf("%.4f",newTotal);
-        assertEquals(newTotal);
+    MainApplication sureTotal = new MainApplication();
+
+    @Test
+    void TestInverse() {
+        String newTotal = Double.toString(sureTotal.inverse(2));
+        assertEquals("0.5", newTotal);
     }
 
-    {
-        MainApplication sureTotal = new MainApplication();
-        Double newExpoTotal = sureTotal.expoTotal(2, 6);
-        System.out.println(newExpoTotal);
-        assertEquals(newExpoTotal);
+    @Test
+    public void TestExpo () {
+        String newExpoTotal = Double.toString(sureTotal.expoTotal(2, 6));
+        assertEquals("64.0", newExpoTotal);
     }
 
-    {
-        MainApplication sureTotal = new MainApplication();
-        Double newSquareTotal = sureTotal.squareTotal(3);
-        System.out.printf("%.1f",newSquareTotal);
-        assertEquals(newSquareTotal);
+    @Test
+    public void TestSquare () {
+        String newSquareTotal = Double.toString(sureTotal.squareTotal(3));
+        assertEquals("9.0", newSquareTotal);
+    }
+    @Test
+    public void TestSquareRt () {
+        String newSquareTotal = Double.toString(sureTotal.sqrtTotal(9));
+        assertEquals("3.0", newSquareTotal);
     }
 
-    {
-        MainApplication sureTotal = new MainApplication();
-        Double newMultiTotal = sureTotal.multiTotal(4, 6);
-        System.out.println(newMultiTotal);
-        assertEquals(newMultiTotal);
+    @Test
+    public void TestMulti () {
+        String newMultiTotal = Double.toString(sureTotal.multiTotal(4, 6));
+        assertEquals("24.0", newMultiTotal);
     }
 
-    {
-        MainApplication sureTotal = new MainApplication();
-        Double newDiviTotal = sureTotal.diviTotal(18, 3);
-        System.out.println(newDiviTotal);
-        arrertEquals(newDiviTotal);
+    @Test
+    public void TestDivi () {
+        String newDiviTotal = Double.toString(sureTotal.diviTotal(18, 3));
+        assertEquals("6.0", newDiviTotal);
     }
 
-    {
-        MainApplication sureTotal = new MainApplication();
-        Double newSubTotal = sureTotal.subTotal(56, 23);
-        System.out.println(newSubTotal);
-        assertEquals(newSubTotal);
+    @Test
+    public void TestSub () {
+        String newSubTotal = Double.toString(sureTotal.subTotal(56, 23));
+        assertEquals("33.0", newSubTotal);
     }
 
-    {MainApplication sureTotal = new MainApplication();
-        Double newSumTotal = sureTotal.sumTotal(343, 943);
-        System.out.println(newSumTotal);
-        assertEquals(newSumTotal);
+    @Test
+    public void TestSum () {
+        String newSumTotal = Double.toString(sureTotal.sumTotal(343, 943));
+        assertEquals("1286.0", newSumTotal);
+    }
+    //collin advanced math Tests
+    MainApplication generic = new MainApplication();
+    @Test
+    public void getSine() {
+        double degrees = generic.getSine(90);
+        assertEquals(1.0, degrees);
+    }
+
+    @Test
+    void getCosine() {
+        double degrees = generic.getCosine(180);
+        assertEquals(-1.0, degrees);
+    }
+
+    @Test
+    void getTangent() {
+        double degrees = generic.getTangent(30);
+        assertEquals(0.57735027, degrees);
+    }
+
+    @Test
+    void getAsine() {
+        double degrees = generic.getAsine(30);
+        assertEquals(0.55106958, degrees);
     }
 
 }
