@@ -56,40 +56,71 @@ public class MainApplication {
 
     public double sumTotal(double num1,double num2)
     {
+        DecimalFormat df = new DecimalFormat("##.########");
+        num1 = Console.getDoubleInput("First number: ");
+        num2 = Console.getDoubleInput("Second number: ");
         return Double.parseDouble(df.format(num1 + num2));
     }
     public double multiTotal(double num1, double num2) {
+        num1 = Console.getDoubleInput("First number: ");
+        num2 = Console.getDoubleInput("Seconde number: ");
+        DecimalFormat df = new DecimalFormat("##.########");
+
         return (num1 * num2);
     }
     public double subTotal(double num1, double num2) {
+        num1 = Console.getDoubleInput( "First number: ");
+        num2 = Console.getDoubleInput("Second number: ");
+        DecimalFormat df = new DecimalFormat("##.########");
         return (num1 - num2);
     }
-    public double diviTotal(double num1,double num2) {
-        return (num1 / num2);
+    public double diviTotal(double num1,double num2)
+    {
+        num1 = Console.getDoubleInput("First number: ");
+        num2= Console.getDoubleInput("Second number: ");
+        DecimalFormat df = new DecimalFormat("##.#########");
+    return (num1 / num2);
     }
     public double squareTotal(double num1) {
+        num1 = Console.getDoubleInput("Number: ");
+        DecimalFormat df = new DecimalFormat("##.########");
         return(Math.pow(num1, 2));
     }
 
     public double sqrtTotal(double num1) {
+        num1 = Console.getDoubleInput("Number: ");
+        DecimalFormat df = new DecimalFormat("##.########");
         return(Math.sqrt(num1));
     }
     public double expoTotal(double num1, double num2) {
+        num1 = Console.getDoubleInput("First number: ");
+        num2 = Console.getDoubleInput("Second number: ");
+        DecimalFormat df = new DecimalFormat("##.########");
         return(Math.pow(num1, num2));
     }
 
     public double inverse(double num1) {
         String nums = (String) String.format ("3%.2f", (1 /num1));
         Double newNum = Double.parseDouble(nums);
+        num1 = Console.getDoubleInput("Number: ");
         return (1/ num1);
     }
+    public double factorial(double num1) {
+        if (num1 == 0)
+        return 1;
+    else
+        return (num1 + factorial(num1 - 1));
+    }
+
     public double getSine(double degrees) {
         double radians = Math.toRadians(degrees);
+        DecimalFormat df = new DecimalFormat("##.#######");
         return Math.sin(radians);
     }
 
     public double getCosine(double degrees) {
         double radians = Math.toRadians(degrees);
+        DecimalFormat df = new DecimalFormat("##.########");
         return Math.cos(radians);
     }
 

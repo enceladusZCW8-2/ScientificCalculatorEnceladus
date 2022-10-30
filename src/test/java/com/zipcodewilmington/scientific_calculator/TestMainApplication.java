@@ -3,8 +3,6 @@ package com.zipcodewilmington.scientific_calculator;
 import com.zipcodewilmington.scientificcalculator.MainApplication;
 import org.junit.jupiter.api.Test;
 
-import java.text.DecimalFormat;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -55,10 +53,17 @@ public class TestMainApplication {
     }
 
     @Test
+    public void getFactorial () {
+        String newFactorial = Double.toString(sureTotal.factorial(2));
+        assertEquals("4.0", newFactorial);
+    }
+    @Test
     public void TestSum () {
         String newSumTotal = Double.toString(sureTotal.sumTotal(343, 943));
         assertEquals("1286.0", newSumTotal);
     }
+
+
     //collin advanced math Tests
     MainApplication generic = new MainApplication();
     @Test
@@ -66,6 +71,7 @@ public class TestMainApplication {
         double degrees = generic.getSine(90);
         assertEquals(1.0, degrees);
     }
+
 
     @Test
     void getCosine() {
