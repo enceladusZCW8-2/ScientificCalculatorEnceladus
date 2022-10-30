@@ -1,9 +1,8 @@
 package com.zipcodewilmington.scientific_calculator;
 
+import com.zipcodewilmington.scientificcalculator.Console;
 import com.zipcodewilmington.scientificcalculator.MainApplication;
 import org.junit.jupiter.api.Test;
-
-import java.text.DecimalFormat;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -68,21 +67,62 @@ public class TestMainApplication {
     }
 
     @Test
-    void getCosine() {
+    void TestGetCosine() {
         double degrees = generic.getCosine(180);
         assertEquals(-1.0, degrees);
     }
 
     @Test
-    void getTangent() {
+    void TestGetTangent() {
         double degrees = generic.getTangent(30);
         assertEquals(0.57735027, degrees);
     }
 
     @Test
-    void getAsine() {
+    void TestGetAsine() {
         double degrees = generic.getAsine(30);
         assertEquals(0.55106958, degrees);
     }
 
+    @Test
+    void TestGetAcosine() {
+        double degrees = generic.getAcosine(30);
+        assertEquals(1.01972674, degrees);
+    }
+
+    @Test
+    void TestGetAtangent() {
+        double degrees = generic.getAtangent(60);
+        assertEquals(0.80844879, degrees);
+    }
+
+    @Test
+    void TestGetLog() {
+        double x = generic.getLog(10);
+        assertEquals(1.0, x);
+    }
+
+    @Test
+    void TestGetInverseLog() {
+        double x = generic.getInverseLog(2);
+        assertEquals(100.0, x);
+    }
+
+    @Test
+    void TestGetNaturalLog() {
+        double x = generic.getNaturalLog(5);
+        assertEquals(1.60943791, x);
+    }
+
+    @Test
+    void TestGetInverseNaturalLog() {
+        double x = generic.getInverseNaturalLog(5);
+        assertEquals(148.41315910, x);
+    }
+
+    @Test
+    void TestGetBillTotalWithTip() {
+        double total = generic.getBillTotalWithTip(20.0, 0.18);
+        assertEquals(23.6, total);
+    }
 }

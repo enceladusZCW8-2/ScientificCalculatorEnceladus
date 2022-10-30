@@ -7,7 +7,7 @@ import java.util.Scanner;
  * Created by leon on 2/9/18.
  */
 public class MainApplication {
-    DecimalFormat df = new DecimalFormat("##.#######");
+    DecimalFormat df = new DecimalFormat("##.########");
     public void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.println("Welcome to my calculator!");
@@ -83,7 +83,7 @@ public class MainApplication {
         Double newNum = Double.parseDouble(nums);
         return (1/ num1);
     }
-    public double getSine(double degrees) {
+    public static double getSine(double degrees) {
         double radians = Math.toRadians(degrees);
         return Math.sin(radians);
     }
@@ -95,15 +95,43 @@ public class MainApplication {
 
     public double getTangent(double degrees) {
         double radians = Math.toRadians(degrees);
-        DecimalFormat df = new DecimalFormat("##.########");
         return Double.parseDouble(df.format(Math.tan(radians)));
     }
 
     public double getAsine(double degrees) {
         double radians = Math.toRadians(degrees);
-        DecimalFormat df = new DecimalFormat("##.########");
         return Double.parseDouble(df.format(Math.asin(radians)));
     }
 
+    public double getAcosine(double degrees) {
+        double radians = Math.toRadians(degrees);
+        return Double.parseDouble(df.format(Math.acos(radians)));
+    }
 
+    public double getAtangent(double degrees) {
+        double radians = Math.toRadians(degrees);
+        return Double.parseDouble(df.format(Math.atan(radians)));
+    }
+
+    public double getLog(double x) {
+        return Double.parseDouble(df.format(Math.log10(x)));
+    }
+
+    public double getInverseLog(double x) {
+        return Double.parseDouble((df.format(Math.pow(10, x))));
+    }
+
+    public double getNaturalLog(double x) {
+        return Double.parseDouble(df.format(Math.log(x)));
+    }
+
+    public double getInverseNaturalLog(double x ) {
+        return Double.parseDouble(df.format(Math.exp(x)));
+    }
+
+    public double getBillTotalWithTip(double bill, double tipPercent) {
+        double tip = bill * tipPercent;
+        double total = bill + tip;
+        return total;
+    }
 }
