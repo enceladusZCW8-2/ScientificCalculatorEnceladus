@@ -19,6 +19,7 @@ public class MainApplication {
     static String basicMenu = "0";
     static String trigMenu = "0";
     static boolean degrees = true;
+    
     public static void main(String[] args) {
         System.out.println("Welcome to my calculator!");
         //open while loop, calculator runs until user prompts it to
@@ -287,14 +288,12 @@ public class MainApplication {
     else
         return (num1 + factorial(num1 - 1));
     }
-
     public double remainderTotal(double num1, double num2) {
         double remainder = num1%num2;
         return remainder;
     }
 
     public static double getSine(double degrees) {
-
         double radians = Math.toRadians(degrees);
         DecimalFormat df = new DecimalFormat("##.#######");
         return Math.sin(radians);
@@ -308,15 +307,43 @@ public class MainApplication {
 
     public static double getTangent(double degrees) {
         double radians = Math.toRadians(degrees);
-        DecimalFormat df = new DecimalFormat("##.########");
         return Double.parseDouble(df.format(Math.tan(radians)));
     }
 
     public static double getAsine(double degrees) {
         double radians = Math.toRadians(degrees);
-        DecimalFormat df = new DecimalFormat("##.########");
         return Double.parseDouble(df.format(Math.asin(radians)));
     }
 
+    public double getAcosine(double degrees) {
+        double radians = Math.toRadians(degrees);
+        return Double.parseDouble(df.format(Math.acos(radians)));
+    }
 
+    public double getAtangent(double degrees) {
+        double radians = Math.toRadians(degrees);
+        return Double.parseDouble(df.format(Math.atan(radians)));
+    }
+
+    public double getLog(double x) {
+        return Double.parseDouble(df.format(Math.log10(x)));
+    }
+
+    public double getInverseLog(double x) {
+        return Double.parseDouble((df.format(Math.pow(10, x))));
+    }
+
+    public double getNaturalLog(double x) {
+        return Double.parseDouble(df.format(Math.log(x)));
+    }
+
+    public double getInverseNaturalLog(double x ) {
+        return Double.parseDouble(df.format(Math.exp(x)));
+    }
+
+    public double getBillTotalWithTip(double bill, double tipPercent) {
+        double tip = bill * tipPercent;
+        double total = bill + tip;
+        return total;
+    }
 }
