@@ -252,7 +252,6 @@ public class MainApplication {
         } else {
             inputs = Console.getDoubleInput("Number: ");
         }
-
         return inputs;
     }
     public static double sumTotal(double num1,double num2) {
@@ -279,15 +278,31 @@ public class MainApplication {
     public static double inverse(double num1) {
         String nums = (String) String.format ("3%.2f", (1 /num1));
         Double newNum = Double.parseDouble(nums);
+        num1 = Console.getDoubleInput("Number: ");
         return (1/ num1);
     }
+    public double factorial(double num1) {
+        if (num1 == 0)
+        return 1;
+    else
+        return (num1 + factorial(num1 - 1));
+    }
+
+    public double remainderTotal(double num1, double num2) {
+        double remainder = num1%num2;
+        return remainder;
+    }
+
     public static double getSine(double degrees) {
+
         double radians = Math.toRadians(degrees);
+        DecimalFormat df = new DecimalFormat("##.#######");
         return Math.sin(radians);
     }
 
     public static double getCosine(double degrees) {
         double radians = Math.toRadians(degrees);
+        DecimalFormat df = new DecimalFormat("##.########");
         return Math.cos(radians);
     }
 
