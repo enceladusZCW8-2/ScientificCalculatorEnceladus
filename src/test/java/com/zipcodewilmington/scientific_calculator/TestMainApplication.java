@@ -58,6 +58,11 @@ public class TestMainApplication {
         assertEquals("4.0", newFactorial);
     }
     @Test
+    public void remainderTotal() {
+        String newRemainder = Double.toString(sureTotal.remainderTotal(10,3));
+        assertEquals("1.0",newRemainder);
+    }
+    @Test
     public void TestSum () {
         String newSumTotal = Double.toString(sureTotal.sumTotal(343, 943));
         assertEquals("1286.0", newSumTotal);

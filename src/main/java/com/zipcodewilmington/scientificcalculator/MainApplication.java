@@ -112,6 +112,10 @@ public class MainApplication {
         return (num1 + factorial(num1 - 1));
     }
 
+    public double remainderTotal(double num1, double num2) {
+        double remainder = num1%num2;
+        return remainder;
+    }
     public double getSine(double degrees) {
         double radians = Math.toRadians(degrees);
         DecimalFormat df = new DecimalFormat("##.#######");
