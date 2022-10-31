@@ -1,6 +1,5 @@
 package com.zipcodewilmington.scientific_calculator;
 
-import com.zipcodewilmington.scientificcalculator.Console;
 import com.zipcodewilmington.scientificcalculator.MainApplication;
 import org.junit.jupiter.api.Test;
 
@@ -137,5 +136,10 @@ public class TestMainApplication {
     void TestGetBillTotalWithTip() {
         double total = generic.getBillTotalWithTip(20.0, 0.18);
         assertEquals(23.6, total);
+    }
+
+    @Test
+    void TestGetAreaRect() {
+        assertEquals(24, generic.getAreaRect(4,6));
     }
 }

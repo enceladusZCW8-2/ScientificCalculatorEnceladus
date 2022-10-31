@@ -22,7 +22,7 @@ public class MainApplication {
 
     static String logMenu = "0";
 
-    static String tipCalculatorMenu = "0";
+    static String otherMenu = "0";
     
     public static void main(String[] args) {
         System.out.println("Welcome to my calculator!");
@@ -32,7 +32,7 @@ public class MainApplication {
             //first menu
             if (mainMenu.equals("0")) {
                 //main menu 0 - display menu and prompt for choice
-                mainMenu = Console.getStringInput("Main Menu\n1. Basic Functions\n2. Trig  Functions\n3. Log Functions\n4. Tip Calculator\n9. Exit\n+ Change Polarity\nCLR Clear Display\nM+ Store Display\nMC Clear Memory\nMRC Recall Memory\nDisplay " + display);
+                mainMenu = Console.getStringInput("Main Menu\n1. Basic Functions\n2. Trig  Functions\n3. Log Functions\n4. Other\n9. Exit\n+ Change Polarity\nCLR Clear Display\nM+ Store Display\nMC Clear Memory\nMRC Recall Memory\nDisplay " + display);
             }
             //Basic Menu
             if (mainMenu.equals("1")) {
@@ -255,45 +255,53 @@ public class MainApplication {
             }
                 //Tip calc menu
             else if (mainMenu.equals("4")){
-                    tipCalculatorMenu = Console.getStringInput("1.Tip Calculator\n9. Back\n+ Change Polarity\nCLR Clear Display\nM+ Store Display\nMC Clear Memory\nMRC Recall Memory\nDisplay " + display);
+                    otherMenu = Console.getStringInput("Other Menu\n1. Tip Calculator\n2. Area of a Rectangle\n9. Back\n+ Change Polarity\nCLR Clear Display\nM+ Store Display\nMC Clear Memory\nMRC Recall Memory\nDisplay " + display);
                     //Tip Calculator
-                    if (tipCalculatorMenu.equals("1")) {
-                        double[] nums = new double[2];
+                    if (otherMenu.equals("1")) {
+                        double[] nums;
                         nums = getTwoInput();
                         num1 = nums[0];
                         num2 = nums[1];
                         display = getBillTotalWithTip(num1, num2);
                     }
+                    //Rectangle Area
+                    if (otherMenu.equals("2")) {
+                        double[] nums;
+                        nums = getTwoInput();
+                        num1 = nums[0];
+                        num2 = nums[1];
+                        display = getAreaRect(num1, num2);
+                    }
                     //return to main menu
-                    else if (tipCalculatorMenu.equals("9")) {
+                    else if (otherMenu.equals("9")) {
                         mainMenu = "0";
                     }
                     //change polartiy
-                    else if (tipCalculatorMenu.equals("+")) {
+                    else if (otherMenu.equals("+")) {
                         if (display != 0) {
                             display = -display;
                         }
                     }
                     //clear display
-                    else if (tipCalculatorMenu.equalsIgnoreCase("CLR")) {
+                    else if (otherMenu.equalsIgnoreCase("CLR")) {
                         display = 0;
                     }
                     //Add to memory
-                    else if (tipCalculatorMenu.equalsIgnoreCase("M+")) {
+                    else if (otherMenu.equalsIgnoreCase("M+")) {
                         memory = display;
                     }
                     //clear memory
-                    else if (tipCalculatorMenu.equalsIgnoreCase("MC")) {
+                    else if (otherMenu.equalsIgnoreCase("MC")) {
                         memory = 0;
                     }
                     //recall memory
-                    else if (tipCalculatorMenu.equalsIgnoreCase("MRC")) {
+                    else if (otherMenu.equalsIgnoreCase("MRC")) {
                         display = memory;
                     }
                     //catch input not recognized
                     else {
                         System.out.println("That is not a valid input.");
-                        tipCalculatorMenu = "1";
+                        otherMenu = "1";
                     }
             }
             //exit calculator, closes while loop
@@ -308,6 +316,7 @@ public class MainApplication {
             }
             else if (mainMenu.equalsIgnoreCase("CLR")) {
                 display = 0;
+                mainMenu = "0";
             }
             else if (mainMenu.equalsIgnoreCase("M+")) {
                 memory = display;
@@ -376,8 +385,6 @@ public class MainApplication {
     }
     public static double inverse(double num1) {
         String nums = (String) String.format ("3%.2f", (1 /num1));
-        Double newNum = Double.parseDouble(nums);
-        num1 = Console.getDoubleInput("Number: ");
         return (1/ num1);
     }
     public double factorial(double num1) {
@@ -443,5 +450,8 @@ public class MainApplication {
         double tip = bill * tipPercent;
         double total = bill + tip;
         return total;
+    }
+    public static double getAreaRect(double width, double height) {
+        return width*height;
     }
 }
