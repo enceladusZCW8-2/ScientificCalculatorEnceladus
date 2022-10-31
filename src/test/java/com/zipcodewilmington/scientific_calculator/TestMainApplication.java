@@ -88,25 +88,25 @@ public class TestMainApplication {
     @Test
     void TestGetTangent() {
         double degrees = generic.getTangent(30);
-        assertEquals(0.57735027, degrees);
+        assertEquals(0.5773503, degrees);
     }
 
     @Test
     void TestGetAsine() {
         double degrees = generic.getAsine(30);
-        assertEquals(0.55106958, degrees);
+        assertEquals(0.5510696, degrees);
     }
 
     @Test
     void TestGetAcosine() {
         double degrees = generic.getAcosine(30);
-        assertEquals(1.01972674, degrees);
+        assertEquals(1.0197267, degrees);
     }
 
     @Test
     void TestGetAtangent() {
         double degrees = generic.getAtangent(60);
-        assertEquals(0.80844879, degrees);
+        assertEquals(0.8084488, degrees);
     }
 
     @Test
@@ -124,7 +124,7 @@ public class TestMainApplication {
     @Test
     void TestGetNaturalLog() {
         double x = generic.getNaturalLog(5);
-        assertEquals(1.60943791, x);
+        assertEquals(1.6094379, x);
     }
 
     @Test
