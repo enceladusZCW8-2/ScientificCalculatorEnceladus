@@ -19,6 +19,10 @@ public class MainApplication {
     static String basicMenu = "0";
     static String trigMenu = "0";
     static boolean degrees = true;
+
+    static String logMenu = "0";
+
+    static String tipCalculatorMenu = "0";
     
     public static void main(String[] args) {
         System.out.println("Welcome to my calculator!");
@@ -28,7 +32,7 @@ public class MainApplication {
             //first menu
             if (mainMenu.equals("0")) {
                 //main menu 0 - display menu and prompt for choice
-                mainMenu = Console.getStringInput("Main Menu\n1. Basic Functions\n2. Trig  Functions\n9. Exit\n+ Change Polarity\nCLR Clear Display\nM+ Store Display\nMC Clear Memory\nMRC Recall Memory\nDisplay " + display);
+                mainMenu = Console.getStringInput("Main Menu\n1. Basic Functions\n2. Trig  Functions\n3. Log Functions\n4. Tip Calculator\n9. Exit\n+ Change Polarity\nCLR Clear Display\nM+ Store Display\nMC Clear Memory\nMRC Recall Memory\nDisplay " + display);
             }
             //Basic Menu
             if (mainMenu.equals("1")) {
@@ -156,14 +160,12 @@ public class MainApplication {
                 else if (trigMenu.equals("5")) {
                     double num1 = 0;
                     num1 = getOneInput();
-                    /*ADD COS-1*/
-                    display = (num1);
+                    display = getAcosine(num1);
                 }
                 else if (trigMenu.equals("6")) {
                     double num1 = 0;
                     num1 = getOneInput();
-                    /*ADD COTAN*/
-                    display = (num1);
+                    display = getAtangent(num1);
                 }
                 //return to main menu
                 else if (trigMenu.equals("9")) {
@@ -198,6 +200,102 @@ public class MainApplication {
                 }
             }
 
+            //log menu
+            else if (mainMenu.equals("3")) {
+                logMenu = Console.getStringInput("Log Functions\n1. Log\n2. Inverse Log\n3. Natural Log\n4. Inverse Natural Log\n9. Back\n+ Change Polarity\nCLR Clear Display\nM+ Store Display\nMC Clear Memory\nMRC Recall Memory\nDisplay " + display);
+                //Log
+                if (logMenu.equals("1")) {
+                    double num1 = 0;
+                    num1 = getOneInput();
+                    display = getLog(num1);
+                } else if (logMenu.equals("2")) {
+                    double num1 = 0;
+                    num1 = getOneInput();
+                    display = getInverseLog(num1);
+                } else if (logMenu.equals("3")) {
+                    double num1 = 0;
+                    num1 = getOneInput();
+                    display = getNaturalLog(num1);
+                } else if (logMenu.equals("4")) {
+                    double num1 = 0;
+                    num1 = getOneInput();
+                    display = getInverseNaturalLog(num1);
+                }
+                //return to main menu
+                else if (logMenu.equals("9")) {
+                    mainMenu = "0";
+                }
+                //change polartiy
+                else if (logMenu.equals("+")) {
+                    if (display != 0) {
+                        display = -display;
+                    }
+                }
+                //clear display
+                else if (logMenu.equalsIgnoreCase("CLR")) {
+                    display = 0;
+                }
+                //Add to memory
+                else if (logMenu.equalsIgnoreCase("M+")) {
+                    memory = display;
+                }
+                //clear memory
+                else if (logMenu.equalsIgnoreCase("MC")) {
+                    memory = 0;
+                }
+                //recall memory
+                else if (logMenu.equalsIgnoreCase("MRC")) {
+                    display = memory;
+                }
+                //catch input not recognized
+                else {
+                    System.out.println("That is not a valid input.");
+                    logMenu = "1";
+                }
+            }
+                //Tip calc menu
+            else if (mainMenu.equals("4")){
+                    tipCalculatorMenu = Console.getStringInput("1.Tip Calculator\n9. Back\n+ Change Polarity\nCLR Clear Display\nM+ Store Display\nMC Clear Memory\nMRC Recall Memory\nDisplay " + display);
+                    //Tip Calculator
+                    if (tipCalculatorMenu.equals("1")) {
+                        double[] nums = new double[2];
+                        nums = getTwoInput();
+                        num1 = nums[0];
+                        num2 = nums[1];
+                        display = getBillTotalWithTip(num1, num2);
+                    }
+                    //return to main menu
+                    else if (tipCalculatorMenu.equals("9")) {
+                        mainMenu = "0";
+                    }
+                    //change polartiy
+                    else if (tipCalculatorMenu.equals("+")) {
+                        if (display != 0) {
+                            display = -display;
+                        }
+                    }
+                    //clear display
+                    else if (tipCalculatorMenu.equalsIgnoreCase("CLR")) {
+                        display = 0;
+                    }
+                    //Add to memory
+                    else if (tipCalculatorMenu.equalsIgnoreCase("M+")) {
+                        memory = display;
+                    }
+                    //clear memory
+                    else if (tipCalculatorMenu.equalsIgnoreCase("MC")) {
+                        memory = 0;
+                    }
+                    //recall memory
+                    else if (tipCalculatorMenu.equalsIgnoreCase("MRC")) {
+                        display = memory;
+                    }
+                    //catch input not recognized
+                    else {
+                        System.out.println("That is not a valid input.");
+                        tipCalculatorMenu = "1";
+                    }
+            }
             //exit calculator, closes while loop
             else if (mainMenu.equals("9")) {
                 exit=true;
@@ -315,33 +413,33 @@ public class MainApplication {
         return Double.parseDouble(df.format(Math.asin(radians)));
     }
 
-    public double getAcosine(double degrees) {
+    public static double getAcosine(double degrees) {
         double radians = Math.toRadians(degrees);
         return Double.parseDouble(df.format(Math.acos(radians)));
     }
 
-    public double getAtangent(double degrees) {
+    public static double getAtangent(double degrees) {
         double radians = Math.toRadians(degrees);
         return Double.parseDouble(df.format(Math.atan(radians)));
     }
 
-    public double getLog(double x) {
+    public static double getLog(double x) {
         return Double.parseDouble(df.format(Math.log10(x)));
     }
 
-    public double getInverseLog(double x) {
+    public static double getInverseLog(double x) {
         return Double.parseDouble((df.format(Math.pow(10, x))));
     }
 
-    public double getNaturalLog(double x) {
+    public static double getNaturalLog(double x) {
         return Double.parseDouble(df.format(Math.log(x)));
     }
 
-    public double getInverseNaturalLog(double x ) {
+    public static double getInverseNaturalLog(double x ) {
         return Double.parseDouble(df.format(Math.exp(x)));
     }
 
-    public double getBillTotalWithTip(double bill, double tipPercent) {
+    public static double getBillTotalWithTip(double bill, double tipPercent) {
         double tip = bill * tipPercent;
         double total = bill + tip;
         return total;
